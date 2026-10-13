@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxDrop — Productos Premium al Mejor Precio | Envío a todo México</title>
+<meta name="description" content="LuxDrop: tecnología, hogar, belleza y mascotas. Productos premium con envío gratis desde $50 y garantía de 30 días. Pide fácil por WhatsApp.">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph (vista previa al compartir en WhatsApp/Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="LuxDrop — Productos Premium al Mejor Precio">
+<meta property="og:description" content="Tecnología, hogar, belleza y mascotas con envío gratis desde $50. Pide por WhatsApp en 1 minuto.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&h=630&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','sans-serif'] } } } };
+</script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+  .gradient-text { background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .glass { background: rgba(255,255,255,.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.1); }
+  .btn-primary { background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); transition: all .3s ease; }
+  .btn-primary:hover { opacity: .92; transform: scale(1.02); }
+  .btn-added { background: linear-gradient(135deg,#10b981,#059669) !important; }
+  .product-card { background: linear-gradient(145deg,#1e293b,#0f172a); border: 1px solid #334155; transition: all .3s ease; }
+  .product-card:hover { border-color:#667eea; transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0,0,0,.4); }
+  .pulse-glow { animation: pulse-glow 2s infinite; }
+  @keyframes pulse-glow { 0%,100%{ box-shadow:0 0 20px rgba(102,126,234,.4);} 50%{ box-shadow:0 0 40px rgba(102,126,234,.8);} }
+  .floating { animation: floating 3s ease-in-out infinite; }
+  @keyframes floating { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  .live-dot { animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+  .scroll-reveal { opacity:0; transform: translateY(26px); transition: all .6s ease; }
+  .scroll-reveal.active { opacity:1; transform: translateY(0); }
+  input:focus, textarea:focus, select:focus { outline:none; border-color:#667eea; box-shadow: 0 0 0 3px rgba(102,126,234,.2); }
+  .cat-active { background: rgba(102,126,234,.2) !important; color:#c7d2fe !important; border-color:#667eea !important; }
+  ::-webkit-scrollbar { width:10px; height:10px; }
+  ::-webkit-scrollbar-track { background:#0f172a; }
+  ::-webkit-scrollbar-thumb { background:#334155; border-radius:5px; }
+  ::-webkit-scrollbar-thumb:hover { background:#475569; }
+  .marquee { display:flex; gap:3rem; animation: marquee 22s linear infinite; white-space:nowrap; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+</style>
+</head>
+<body class="bg-slate-900 text-white font-sans antialiased overflow-x-hidden">
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/525570631464?text=Hola!%20Vi%20tu%20tienda%20LuxDrop%20y%20quiero%20hacer%20un%20pedido" target="_blank"
+     class="fixed bottom-6 right-6 z-[70] w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition">
+    <i class="fab fa-whatsapp text-3xl text-white"></i>
+    <span class="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full text-xs flex items-center justify-center animate-bounce font-bold">1</span>
+  </a>
+
+  <!-- Volver arriba -->
+  <button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+     class="fixed bottom-6 right-24 z-[70] w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/15 transition">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Barra superior -->
+  <div class="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 px-4 py-2 text-center text-sm font-medium">
+    <i class="fas fa-shipping-fast mr-2"></i>ENVÍO GRATIS en compras mayores a $50 | Entrega 5-15 días hábiles
+    <button onclick="this.parentElement.style.display='none'" class="ml-4 text-white/70 hover:text-white"><i class="fas fa-times"></i></button>
+  </div>
+
+  <!-- Barra de seguridad -->
+  <div class="bg-emerald-900/30 border-b border-emerald-700/30 px-4 py-2 text-center text-xs">
+    <i class="fas fa-shield-alt text-emerald-400 mr-2"></i>
+    <span class="text-emerald-300">SSL 256-bit Seguro • Pagos Protegidos • Garantía de Devolución 30 días</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 glass px-4 md:px-6 py-3">
+    <div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
+      <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <div class="w-11 h-11 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center floating">
+          <i class="fas fa-crown text-white text-lg"></i>
+        </div>
+        <div class="leading-none">
+          <span class="text-2xl font-extrabold gradient-text">LuxDrop</span>
+          <p class="text-[11px] text-slate-400 mt-0.5">Tienda Oficial</p>
+        </div>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#inicio" class="hover:text-purple-400 transition">Inicio</a>
+        <a href="#productos" class="hover:text-purple-400 transition">Productos</a>
+        <a href="#ofertas" class="hover:text-purple-400 transition text-amber-400"><i class="fas fa-fire mr-1"></i>Ofertas</a>
+        <a href="#faq" class="hover:text-purple-400 transition">Preguntas</a>
+        <a href="#contacto" class="hover:text-purple-400 transition">Contacto</a>
+      </div>
+
+      <div class="hidden md:flex items-center bg-slate-800/80 border border-slate-700 rounded-full px-4 py-2 w-56">
+        <i class="fas fa-search text-slate-500 text-sm"></i>
+        <input id="searchInput" type="text" placeholder="Buscar productos..." class="bg-transparent text-sm w-full px-2 outline-none border-0">
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="toggleCart(true)" class="relative p-3 hover:bg-white/10 rounded-xl transition" aria-label="Carrito">
+          <i class="fas fa-shopping-cart text-lg"></i>
+          <span id="cartCount" class="absolute -top-1 -right-1 w-5 h-5 bg-pink-500 rounded-full text-[11px] flex items-center justify-center font-bold">0</span>
+        </button>
+        <button onclick="toggleMenu()" class="lg:hidden p-3 hover:bg-white/10 rounded-xl transition" aria-label="Menú">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div id="mobileMenu" class="hidden lg:hidden mt-3 pb-2 space-y-1 border-t border-slate-700/60 pt-3">
+      <div class="flex items-center bg-slate-800/80 border border-slate-700 rounded-full px-4 py-2 mb-2">
+        <i class="fas fa-search text-slate-500 text-sm"></i>
+        <input id="searchInputM" type="text" placeholder="Buscar productos..." class="bg-transparent text-sm w-full px-2 outline-none border-0">
+      </div>
+      <a href="#inicio" onclick="toggleMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/5">Inicio</a>
+      <a href="#productos" onclick="toggleMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/5">Productos</a>
+      <a href="#ofertas" onclick="toggleMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/5 text-amber-400">Ofertas</a>
+      <a href="#faq" onclick="toggleMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/5">Preguntas</a>
+      <a href="#contacto" onclick="toggleMenu()" class="block px-3 py-2 rounded-lg hover:bg-white/5">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative px-6 py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-slate-900 to-pink-900/25"></div>
+    <div class="absolute top-16 left-6 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-6 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-purple-300 mb-6">
+            <span class="w-2 h-2 bg-green-400 rounded-full live-dot"></span>
+            <span id="liveBuyers">+2,847 personas comprando ahora</span>
+          </div>
+
+          <h1 class="text-5xl md:text-6xl xl:text-7xl font-black leading-[1.05] mb-6">
+            Productos <span class="gradient-text">Premium</span><br>Precios <span class="text-emerald-400">Irreales</span>
+          </h1>
+
+          <p class="text-slate-400 text-lg mb-8 leading-relaxed max-w-lg">
+            Calidad directa de fábrica, sin intermediarios. Elige, arma tu carrito y confirma por WhatsApp en menos de 1 minuto.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mb-8">
+            <a href="#productos" class="btn-primary px-8 py-4 rounded-full font-bold text-lg pulse-glow inline-flex items-center">
+              <i class="fas fa-shopping-bag mr-2"></i>Ver Productos
+            </a>
+            <button onclick="toggleCart(true)" class="glass px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition inline-flex items-center">
+              <i class="fas fa-cart-plus mr-2 text-purple-300"></i>Mi Carrito
+            </button>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400">
+            <div class="flex items-center gap-2">
+              <div class="flex -space-x-2">
+                <img src="https://i.pravatar.cc/40?img=1" class="w-8 h-8 rounded-full border-2 border-slate-900" alt="">
+                <img src="https://i.pravatar.cc/40?img=2" class="w-8 h-8 rounded-full border-2 border-slate-900" alt="">
+                <img src="https://i.pravatar.cc/40?img=5" class="w-8 h-8 rounded-full border-2 border-slate-900" alt="">
+                <img src="https://i.pravatar.cc/40?img=8" class="w-8 h-8 rounded-full border-2 border-slate-900" alt="">
+              </div>
+              <span class="ml-1"><strong class="text-white">4.9/5</strong> · 2,847 reseñas</span>
+            </div>
+            <span class="hidden sm:inline text-slate-600">|</span>
+            <span><i class="fas fa-truck-fast text-purple-400 mr-1"></i>Envío 5-15 días</span>
+            <span><i class="fas fa-rotate-left text-amber-400 mr-1"></i>30 días de garantía</span>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-30"></div>
+          <div class="relative bg-slate-800 rounded-3xl p-5 border border-slate-700">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop" alt="Auriculares Pro Max" class="w-full h-64 object-cover rounded-2xl">
+              <span class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">-62%</span>
+              <span class="absolute top-3 right-3 bg-amber-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">⭐ Más vendido</span>
+            </div>
+            <div class="flex justify-between items-start mt-4 mb-3">
+              <div>
+                <h3 class="text-xl font-bold">Auriculares Pro Max</h3>
+                <p class="text-slate-400 text-sm">Cancelación de ruido activa · 40h batería</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-extrabold text-emerald-400">$45.00</p>
+                <p class="text-slate-500 line-through text-sm">$120.00</p>
+              </div>
+            </div>
+            <button onclick="addToCart(1,1,this)" class="w-full btn-primary py-3 rounded-xl font-bold">
+              <i class="fas fa-cart-plus mr-2"></i>Agregar al Carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="border-y border-slate-800 bg-slate-800/30 py-4 overflow-hidden">
+    <div class="marquee text-sm text-slate-400 font-medium">
+      <span><i class="fas fa-bolt text-amber-400 mr-2"></i>+12,400 pedidos entregados</span>
+      <span><i class="fas fa-star text-amber-400 mr-2"></i>4.9/5 en satisfacción</span>
+      <span><i class="fas fa-shield-halved text-emerald-400 mr-2"></i>Pago 100% seguro</span>
+      <span><i class="fas fa-headset text-purple-400 mr-2"></i>Soporte por WhatsApp 9am-10pm</span>
+      <span><i class="fas fa-box-open text-pink-400 mr-2"></i>Envío gratis desde $50</span>
+      <span><i class="fas fa-bolt text-amber-400 mr-2"></i>+12,400 pedidos entregados</span>
+      <span><i class="fas fa-star text-amber-400 mr-2"></i>4.9/5 en satisfacción</span>
+      <span><i class="fas fa-shield-halved text-emerald-400 mr-2"></i>Pago 100% seguro</span>
+      <span><i class="fas fa-headset text-purple-400 mr-2"></i>Soporte por WhatsApp 9am-10pm</span>
+      <span><i class="fas fa-box-open text-pink-400 mr-2"></i>Envío gratis desde $50</span>
+    </div>
+  </div>
+
+  <!-- Sellos de confianza -->
+  <section class="px-6 py-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+      <div class="glass rounded-2xl p-6"><i class="fas fa-truck text-3xl text-purple-400 mb-3"></i><p class="font-semibold">Envío Gratuito</p><p class="text-xs text-slate-400">En compras +$50</p></div>
+      <div class="glass rounded-2xl p-6"><i class="fas fa-shield-alt text-3xl text-emerald-400 mb-3"></i><p class="font-semibold">Pago Seguro</p><p class="text-xs text-slate-400">100% Protegido</p></div>
+      <div class="glass rounded-2xl p-6"><i class="fas fa-undo text-3xl text-amber-400 mb-3"></i><p class="font-semibold">Devolución 30 días</p><p class="text-xs text-slate-400">Garantía total</p></div>
+      <div class="glass rounded-2xl p-6"><i class="fas fa-headset text-3xl text-pink-400 mb-3"></i><p class="font-semibold">Soporte 24/7</p><p class="text-xs text-slate-400">WhatsApp directo</p></div>
+    </div>
+  </section>
+
+  <!-- Ofertas -->
+  <section id="ofertas" class="px-6 py-16 bg-slate-800/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="inline-block bg-amber-500/15 text-amber-400 text-xs font-bold px-3 py-1 rounded-full mb-3">TIEMPO LIMITADO</span>
+        <h2 class="text-4xl font-black mb-3">Ofertas <span class="text-amber-400">Flash</span></h2>
+        <p class="text-slate-400">Terminan en:</p>
+        <div id="countdown" class="mt-2 text-3xl font-mono font-bold text-amber-400 tracking-widest">00 : 00 : 00</div>
+      </div>
+      <div id="offersGrid" class="grid md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="px-6 py-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-black mb-3">Catálogo <span class="gradient-text">Completo</span></h2>
+        <p class="text-slate-400">Envío directo desde nuestros almacenes. Stock limitado.</p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-4 justify-between items-center mb-8">
+        <div class="flex flex-wrap justify-center gap-2">
+          <button onclick="setCategory('all',this)" class="cat-btn cat-active px-4 py-2 rounded-full border border-slate-600 text-sm transition">Todos</button>
+          <button onclick="setCategory('tech',this)" class="cat-btn px-4 py-2 rounded-full border border-slate-600 text-sm hover:border-purple-500 transition">Tecnología</button>
+          <button onclick="setCategory('home',this)" class="cat-btn px-4 py-2 rounded-full border border-slate-600 text-sm hover:border-purple-500 transition">Hogar</button>
+          <button onclick="setCategory('beauty',this)" class="cat-btn px-4 py-2 rounded-full border border-slate-600 text-sm hover:border-purple-500 transition">Belleza</button>
+          <button onclick="setCategory('pets',this)" class="cat-btn px-4 py-2 rounded-full border border-slate-600 text-sm hover:border-purple-500 transition">Mascotas</button>
+        </div>
+        <select id="sortSelect" onchange="sortBy=this.value;applyFilters()" class="bg-slate-800 border border-slate-700 rounded-full px-4 py-2 text-sm">
+          <option value="featured">Ordenar: Destacados</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="rating">Mejor valorados</option>
+        </select>
+      </div>
+
+      <div id="productsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      <p id="noResults" class="hidden text-center text-slate-400 py-16"><i class="fas fa-search text-3xl mb-3 block"></i>No encontramos productos con esa búsqueda.</p>
+    </div>
+  </section>
+
+  <!-- Estadísticas -->
+  <section class="px-6 py-16 border-y border-slate-800 bg-slate-800/30">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div><p class="text-4xl font-black gradient-text">+12.4K</p><p class="text-sm text-slate-400 mt-1">Pedidos entregados</p></div>
+      <div><p class="text-4xl font-black gradient-text">4.9★</p><p class="text-sm text-slate-400 mt-1">Valoración media</p></div>
+      <div><p class="text-4xl font-black gradient-text">30</p><p class="text-sm text-slate-400 mt-1">Días de garantía</p></div>
+      <div><p class="text-4xl font-black gradient-text">24/7</p><p class="text-sm text-slate-400 mt-1">Atención por WhatsApp</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="px-6 py-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-black mb-3">Lo que dicen <span class="gradient-text">nuestros clientes</span></h2>
+        <p class="text-slate-400">Reseñas reales de compradores</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6 scroll-reveal">
+          <div class="text-amber-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-slate-300 mb-4">"Pedí unos auriculares y llegaron en 9 días. Suenan increíble y el precio es ridículo comparado con tiendas locales. Ya voy por el segundo pedido."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://i.pravatar.cc/40?img=12" class="w-10 h-10 rounded-full" alt="">
+            <div><p class="font-semibold text-sm">Carlos M.</p><p class="text-xs text-slate-500">CDMX · Compra verificada</p></div>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 scroll-reveal">
+          <div class="text-amber-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-slate-300 mb-4">"Lo mejor es que pedí todo por WhatsApp en un minuto. Me confirmaron el stock al instante y me mandaron el número de guía. Súper confiable."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://i.pravatar.cc/40?img=32" class="w-10 h-10 rounded-full" alt="">
+            <div><p class="font-semibold text-sm">Fernanda R.</p><p class="text-xs text-slate-500">Guadalajara · Compra verificada</p></div>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 scroll-reveal">
+          <div class="text-amber-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p class="text-slate-300 mb-4">"Compré la fuente para mi gato y la lámpara RGB. Buena calidad por el precio. El soporte me ayudó cuando tuve una duda del envío."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://i.pravatar.cc/40?img=45" class="w-10 h-10 rounded-full" alt="">
+            <div><p class="font-semibold text-sm">Diego A.</p><p class="text-xs text-slate-500">Monterrey · Compra verificada</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo comprar -->
+  <section class="px-6 py-16 bg-slate-800/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-black mb-3">¿Cómo <span class="gradient-text">Comprar</span>?</h2>
+        <p class="text-slate-400">Es súper fácil y rápido</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center scroll-reveal"><div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black">1</div><h3 class="font-bold mb-2">Elige Producto</h3><p class="text-sm text-slate-400">Agrega al carrito lo que quieras del catálogo</p></div>
+        <div class="text-center scroll-reveal"><div class="w-16 h-16 bg-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black">2</div><h3 class="font-bold mb-2">Envía tu pedido</h3><p class="text-sm text-slate-400">Un clic y el carrito se arma solo en WhatsApp</p></div>
+        <div class="text-center scroll-reveal"><div class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black">3</div><h3 class="font-bold mb-2">Paga Seguro</h3><p class="text-sm text-slate-400">Transferencia, depósito u OXXO</p></div>
+        <div class="text-center scroll-reveal"><div class="w-16 h-16 bg-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black">4</div><h3 class="font-bold mb-2">Recibe en Casa</h3><p class="text-sm text-slate-400">Envío directo en 5-15 días hábiles</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="px-6 py-20">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-black mb-3">Preguntas <span class="gradient-text">Frecuentes</span></h2>
+        <p class="text-slate-400">Todo lo que necesitas saber antes de comprar</p>
+      </div>
+      <div class="space-y-3">
+        <details class="glass rounded-2xl p-5 cursor-pointer">
+          <summary class="font-semibold flex justify-between items-center">¿Cuánto tarda el envío?<i class="fas fa-chevron-down text-slate-500"></i></summary>
+          <p class="text-slate-400 text-sm mt-3">De 5 a 15 días hábiles según tu ciudad. Te enviamos el número de guía en cuanto tu pedido sale del almacén.</p>
+        </details>
+        <details class="glass rounded-2xl p-5 cursor-pointer">
+          <summary class="font-semibold flex justify-between items-center">¿Qué formas de pago aceptan?<i class="fas fa-chevron-down text-slate-500"></i></summary>
+          <p class="text-slate-400 text-sm mt-3">Transferencia bancaria, depósito, OXXO y pago en efectivo contra entrega (según zona). Te compartimos los datos por WhatsApp al confirmar.</p>
+        </details>
+        <details class="glass rounded-2xl p-5 cursor-pointer">
+          <summary class="font-semibold flex justify-between items-center">¿Puedo devolver mi producto?<i class="fas fa-chevron-down text-slate-500"></i></summary>
+          <p class="text-slate-400 text-sm mt-3">Sí. Tienes 30 días desde que recibes tu paquete. Si llega dañado o no es lo que pediste, lo reponemos o te devolvemos tu dinero.</p>
+        </details>
+        <details class="glass rounded-2xl p-5 cursor-pointer">
+          <summary class="font-semibold flex justify-between items-center">¿El envío tiene costo?<i class="fas fa-chevron-down text-slate-500"></i></summary>
+          <p class="text-slate-400 text-sm mt-3">El envío es totalmente gratis en compras mayores a $50. Debajo de ese monto se cobra una tarifa fija de $5.99.</p>
+        </details>
+        <details class="glass rounded-2xl p-5 cursor-pointer">
+          <summary class="font-semibold flex justify-between items-center">¿Hacen envíos a todo México?<i class="fas fa-chevron-down text-slate-500"></i></summary>
+          <p class="text-slate-400 text-sm mt-3">Sí, llegamos a toda la República. Escríbenos por WhatsApp con tu código postal y te confirmamos el tiempo exacto de entrega.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="px-6 py-20 bg-slate-800/40">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-black mb-3">Contáctanos</h2>
+        <p class="text-slate-400">¿Tienes dudas? Escríbenos directo</p>
+      </div>
+      <div class="glass rounded-3xl p-6 md:p-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Información de Contacto</h3>
+            <div class="space-y-3">
+              <a href="https://wa.me/525570631464?text=Hola!%20Tengo%20una%20duda%20sobre%20un%20producto" target="_blank" class="flex items-center gap-4 p-4 bg-green-500/10 rounded-xl hover:bg-green-500/20 transition">
+                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shrink-0"><i class="fab fa-whatsapp text-2xl"></i></div>
+                <div><p class="font-semibold">WhatsApp</p><p class="text-sm text-slate-400">+52 55 7063 1464</p></div>
+              </a>
+              <a href="mailto:dropshiping999skd@gmail.com" class="flex items-center gap-4 p-4 bg-purple-500/10 rounded-xl hover:bg-purple-500/20 transition">
+                <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-envelope text-xl"></i></div>
+                <div class="min-w-0"><p class="font-semibold">Email</p><p class="text-sm text-slate-400 break-all">dropshiping999skd@gmail.com</p></div>
+              </a>
+              <div class="flex items-center gap-4 p-4 bg-pink-500/10 rounded-xl">
+                <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-clock text-xl"></i></div>
+                <div><p class="font-semibold">Horario</p><p class="text-sm text-slate-400">Lun-Dom: 9am - 10pm</p></div>
+              </div>
+            </div>
+            <div class="mt-6">
+              <p class="font-semibold mb-3">Síguenos:</p>
+              <div class="flex gap-3">
+                <a href="https://instagram.com/zzzxb._" target="_blank" class="w-11 h-11 glass rounded-full flex items-center justify-center hover:bg-pink-500/25 transition text-lg"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/525570631464" target="_blank" class="w-11 h-11 glass rounded-full flex items-center justify-center hover:bg-green-500/25 transition text-lg"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/zzzxb._" target="_blank" class="w-11 h-11 glass rounded-full flex items-center justify-center hover:bg-purple-500/25 transition text-lg"><i class="fab fa-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <form onsubmit="event.preventDefault(); showToast('Mensaje enviado. Te contactamos pronto!','ok'); this.reset();" class="space-y-4">
+            <div><label class="block text-sm text-slate-400 mb-2">Nombre</label><input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3" placeholder="Tu nombre"></div>
+            <div><label class="block text-sm text-slate-400 mb-2">WhatsApp</label><input type="tel" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3" placeholder="+52 ..."></div>
+            <div><label class="block text-sm text-slate-400 mb-2">Mensaje</label><textarea required rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3" placeholder="¿Qué producto te interesa?"></textarea></div>
+            <button type="submit" class="w-full btn-primary py-3 rounded-xl font-bold"><i class="fas fa-paper-plane mr-2"></i>Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="px-6 py-16">
+    <div class="max-w-4xl mx-auto bg-gradient-to-r from-purple-600/25 to-pink-600/25 border border-purple-500/30 rounded-3xl p-8 md:p-12 text-center">
+      <i class="fas fa-envelope-open-text text-4xl text-purple-300 mb-4"></i>
+      <h2 class="text-3xl font-black mb-3">Recibe las ofertas antes que nadie</h2>
+      <p class="text-slate-300 mb-6">Suscríbete y te avisamos de descuentos, lanzamientos y cupones exclusivos.</p>
+      <form onsubmit="event.preventDefault(); showToast('¡Listo! Ya estás suscrito 🎉','ok'); this.reset();" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+        <input type="email" required placeholder="tucorreo@email.com" class="flex-1 bg-slate-900/70 border border-slate-700 rounded-full px-5 py-3">
+        <button type="submit" class="btn-primary px-8 py-3 rounded-full font-bold whitespace-nowrap">Suscribirme</button>
+      </form>
+      <p class="text-xs text-slate-400 mt-3">Sin spam. Puedes salirte cuando quieras.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4"><i class="fas fa-crown text-purple-400 text-xl"></i><span class="text-xl font-bold">LuxDrop</span></div>
+          <p class="text-slate-400 text-sm mb-4">Tu tienda de confianza para productos premium al mejor precio.</p>
+          <div class="flex gap-2 text-lg">
+            <a href="https://instagram.com/zzzxb._" target="_blank" class="w-9 h-9 glass rounded-full flex items-center justify-center hover:bg-pink-500/25 transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/525570631464" target="_blank" class="w-9 h-9 glass rounded-full flex items-center justify-center hover:bg-green-500/25 transition"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Productos</h4>
+          <ul class="text-sm text-slate-400 space-y-2">
+            <li><a href="#productos" onclick="setCategory('tech')" class="hover:text-purple-400">Tecnología</a></li>
+            <li><a href="#productos" onclick="setCategory('home')" class="hover:text-purple-400">Hogar</a></li>
+            <li><a href="#productos" onclick="setCategory('beauty')" class="hover:text-purple-400">Belleza</a></li>
+            <li><a href="#productos" onclick="setCategory('pets')" class="hover:text-purple-400">Mascotas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Ayuda</h4>
+          <ul class="text-sm text-slate-400 space-y-2">
+            <li><a href="#faq" class="hover:text-purple-400">Preguntas frecuentes</a></li>
+            <li><a href="#faq" class="hover:text-purple-400">Envíos</a></li>
+            <li><a href="#faq" class="hover:text-purple-400">Devoluciones</a></li>
+            <li><a href="#contacto" class="hover:text-purple-400">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Contacto</h4>
+          <ul class="text-sm text-slate-400 space-y-2">
+            <li><i class="fab fa-whatsapp text-green-400 mr-2"></i>+52 55 7063 1464</li>
+            <li class="break-all"><i class="fas fa-envelope text-purple-400 mr-2"></i>dropshiping999skd@gmail.com</li>
+            <li><i class="fas fa-clock text-pink-400 mr-2"></i>Lun-Dom 9am-10pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+        <p>© 2025 LuxDrop. Todos los derechos reservados.</p>
+        <div class="flex items-center gap-3 text-xl text-slate-400">
+          <i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i><i class="fas fa-money-bill-wave"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CARRITO -->
+  <div id="cartModal" class="fixed inset-0 z-[80] hidden">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="toggleCart(false)"></div>
+    <aside class="absolute right-0 top-0 h-full w-full max-w-md bg-slate-900 border-l border-slate-700 flex flex-col shadow-2xl">
+      <div class="flex justify-between items-center p-5 border-b border-slate-700">
+        <h2 class="text-xl font-bold"><i class="fas fa-shopping-bag text-purple-400 mr-2"></i>Tu Carrito</h2>
+        <button onclick="toggleCart(false)" class="text-slate-400 hover:text-white p-2"><i class="fas fa-times text-xl"></i></button>
+      </div>
+
+      <div id="shipBar" class="px-5 py-3 bg-slate-800/60 border-b border-slate-700 text-xs hidden">
+        <p id="shipText" class="mb-2 text-slate-300"></p>
+        <div class="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
+          <div id="shipProgress" class="h-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-400 transition-all duration-500" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div id="cartItems" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+
+      <div class="border-t border-slate-700 p-5 space-y-3 bg-slate-900">
+        <div class="grid grid-cols-2 gap-2">
+          <input id="custName" type="text" placeholder="Tu nombre" class="bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-sm">
+          <input id="custAddr" type="text" placeholder="Ciudad / CP" class="bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-sm">
+        </div>
+        <input id="custNotes" type="text" placeholder="Notas (opcional)" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-sm">
+        <div class="flex gap-2">
+          <input id="couponInput" type="text" placeholder="Cupón (LUX10)" class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-sm uppercase">
+          <button onclick="applyCoupon()" class="px-4 py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-sm font-semibold">Aplicar</button>
+        </div>
+
+        <div class="text-sm space-y-1 pt-2">
+          <div class="flex justify-between text-slate-400"><span>Subtotal</span><span id="sumSubtotal">$0.00</span></div>
+          <div id="discountRow" class="flex justify-between text-emerald-400 hidden"><span id="discountLabel">Descuento</span><span id="sumDiscount">-$0.00</span></div>
+          <div class="flex justify-between text-slate-400"><span>Envío</span><span id="sumShipping">$0.00</span></div>
+          <div class="flex justify-between text-lg font-bold pt-2 border-t border-slate-700"><span>Total</span><span id="sumTotal" class="text-emerald-400">$0.00</span></div>
+        </div>
+
+        <button onclick="checkoutWhatsApp()" class="w-full bg-green-500 hover:bg-green-400 transition text-white text-center py-4 rounded-xl font-bold text-lg">
+          <i class="fab fa-whatsapp mr-2"></i>Enviar pedido por WhatsApp
+        </button>
+        <p class="text-[11px] text-center text-slate-500">Se abrirá WhatsApp con tu pedido ya escrito. Solo dale enviar.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- VISTA RÁPIDA -->
+  <div id="qvModal" class="fixed inset-0 z-[85] hidden">
+    <div class="absolute inset-0 bg-black/75 backdrop-blur-sm" onclick="closeQuickView()"></div>
+    <div class="absolute inset-x-0 top-10 mx-auto w-full max-w-3xl px-4">
+      <div id="qvBody" class="bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl"></div>
+    </div>
+  </div>
+
+  <!-- NOTIFICACIONES -->
+  <div id="toasts" class="fixed bottom-6 left-6 z-[90] space-y-2 w-72"></div>
+
+<script>
+/* ================= CONFIG ================= */
+const WA_NUMBER = '525570631464';
+const FREE_SHIPPING_MIN = 50;
+const SHIPPING_COST = 5.99;
+const COUPONS = { 'LUX10': 0.10, 'BIENVENIDA': 0.15 };
+const CART_KEY = 'luxdrop_cart_v2';
+
+/* ================= PRODUCTOS ================= */
+const products = [
+  { id:1,  name:'Auriculares Pro Max',      cat:'tech',   price:45,  old:120, cost:12.5, stock:14, rating:4.9, reviews:312, badge:'Más vendido', supplier:'CJ Dropshipping', img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=400&fit=crop', desc:'Cancelación de ruido activa, 40h de batería, Bluetooth 5.3.', specs:['Cancelación activa de ruido','40 horas de batería','Bluetooth 5.3','Estuche de carga incluido'] },
+  { id:2,  name:'SmartWatch Ultra',         cat:'tech',   price:79,  old:199, cost:18,   stock:22, rating:4.8, reviews:208, badge:'', supplier:'Spocket', img:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=400&fit=crop', desc:'Monitor de salud, GPS, resistente al agua, pantalla AMOLED.', specs:['Pantalla AMOLED 1.9"','GPS integrado','Resistente al agua IP68','Monitor de ritmo cardíaco'] },
+  { id:3,  name:'PowerBank 20000mAh',       cat:'tech',   price:35,  old:79,  cost:8.5,  stock:60, rating:4.7, reviews:441, badge:'', supplier:'AliExpress', img:'https://images.unsplash.com/photo-1609592424308-2c5c1f7c2814?w=500&h=400&fit=crop', desc:'Carga rápida 22.5W, 4 puertos, indicador LED.', specs:['20,000 mAh','Carga rápida 22.5W','4 puertos USB','Indicador LED'] },
+  { id:4,  name:'Cámara WiFi 360°',         cat:'tech',   price:52,  old:129, cost:14,   stock:11, rating:4.8, reviews:96,  badge:'Nuevo', supplier:'CJ Dropshipping', img:'https://images.unsplash.com/photo-1558002038-1055907df827?w=500&h=400&fit=crop', desc:'Visión nocturna, audio bidireccional, control desde el celular.', specs:['Resolución 1080p HD','Visión nocturna','Audio bidireccional','App iOS y Android'] },
+  { id:5,  name:'Organizador de Escritorio',cat:'home',   price:28,  old:65,  cost:6,    stock:40, rating:4.6, reviews:154, badge:'', supplier:'CJ Dropshipping', img:'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=400&fit=crop', desc:'Bambú natural, 5 compartimentos, acabado premium.', specs:['Bambú natural','5 compartimentos','Antideslizante','Fácil de armar'] },
+  { id:6,  name:'Lámpara LED RGB',          cat:'home',   price:38,  old:95,  cost:9,    stock:25, rating:4.7, reviews:187, badge:'', supplier:'Modalyst', img:'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=500&h=400&fit=crop', desc:'16 millones de colores, control por app y voz.', specs:['16M de colores','Control por app','Compatible con Alexa','Modo música'] },
+  { id:7,  name:'Difusor de Aromas',        cat:'home',   price:32,  old:75,  cost:7.5,  stock:33, rating:4.8, reviews:129, badge:'', supplier:'Spocket', img:'https://images.unsplash.com/photo-1602874801006-e26c4c5b5e8a?w=500&h=400&fit=crop', desc:'Humidificador ultrasónico con luz cálida y apagado automático.', specs:['Tanque 300ml','Luz cálida regulable','Apagado automático','Ultrasónico silencioso'] },
+  { id:8,  name:'Masajeador Facial',        cat:'beauty', price:32,  old:79,  cost:7.5,  stock:55, rating:4.6, reviews:243, badge:'', supplier:'Spocket', img:'https://images.unsplash.com/photo-1571781926291-c477ebfd024c?w=500&h=400&fit=crop', desc:'Vibración sónica, efecto anti-edad, recargable por USB.', specs:['Vibración sónica','Efecto anti-edad','Recargable USB','Apto para todo tipo de piel'] },
+  { id:9,  name:'Set 15 Brochas de Maquillaje', cat:'beauty', price:25, old:62, cost:5, stock:80, rating:4.9, reviews:512, badge:'Top', supplier:'Printful', img:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&h=400&fit=crop', desc:'15 piezas, pelo sintético ultra suave, incluye estuche.', specs:['15 piezas','Pelo sintético premium','Incluye estuche','Cerdas suaves'] },
+  { id:10, name:'Cepillo Alisador Eléctrico',cat:'beauty',price:41,  old:99,  cost:10,   stock:19, rating:4.7, reviews:168, badge:'', supplier:'AliExpress', img:'https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=500&h=400&fit=crop', desc:'Calentamiento rápido, 5 niveles, anti-frizz.', specs:['Calentamiento en 30s','5 niveles de temperatura','Anti-frizz','Apagado automático'] },
+  { id:11, name:'Juguete Interactivo para Gatos', cat:'pets', price:22, old:55, cost:4.5, stock:120, rating:4.8, reviews:389, badge:'', supplier:'CJ Dropshipping', img:'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=500&h=400&fit=crop', desc:'Movimiento automático, luz LED, recargable.', specs:['Movimiento automático','Luz LED','Recargable USB','Material seguro'] },
+  { id:12, name:'Fuente de Agua para Mascotas', cat:'pets', price:36, old:85, cost:9, stock:28, rating:4.7, reviews:142, badge:'', supplier:'Spocket', img:'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&h=400&fit=crop', desc:'Circulación silenciosa, filtro de carbón, 2L.', specs:['Capacidad 2L','Bomba ultra silenciosa','Filtro de carbón','Fácil de limpiar'] }
+];
+
+/* ================= ESTADO ================= */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch(e){ cart = []; }
+let activeCat = 'all', searchTerm = '', sortBy = 'featured', couponCode = null;
+
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const money = n => '$' + Number(n).toFixed(2);
+const saveCart = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch(e){} };
+
+/* ================= TOAST ================= */
+function showToast(msg, type='ok'){
+  const wrap = $('#toasts'); if(!wrap) return;
+  const conf = {
+    ok:  ['border-emerald-500','fa-check-circle text-emerald-400'],
+    warn:['border-amber-500','fa-exclamation-circle text-amber-400'],
+    err: ['border-red-500','fa-times-circle text-red-400']
+  }[type] || ['border-emerald-500','fa-check-circle text-emerald-400'];
+  const el = document.createElement('div');
+  el.className = 'glass border-l-4 ' + conf[0] + ' rounded-xl px-4 py-3 shadow-2xl flex items-center gap-3 text-sm translate-x-[-120%] opacity-0 transition duration-300';
+  el.innerHTML = '<i class="fas ' + conf[1] + '"></i><span>' + msg + '</span>';
+  wrap.appendChild(el);
+  requestAnimationFrame(()=>{ el.classList.remove('translate-x-[-120%]','opacity-0'); });
+  setTimeout(()=>{ el.classList.add('translate-x-[-120%]','opacity-0'); setTimeout(()=>el.remove(),300); }, 2800);
+}
+
+/* ================= RENDER ================= */
+const stars = r => { let s=''; for(let i=1;i<=5;i++) s += '<i class="fas fa-star' + (i<=Math.round(r)?'':' text-slate-600') + '"></i>'; return s; };
+
+function cardHTML(p){
+  const off = Math.round((1 - p.price/p.old) * 100);
+  const low = p.stock <= 15;
+  return '<article class="product-card group rounded-2xl overflow-hidden flex flex-col scroll-reveal">' +
+    '<div class="relative h-52 overflow-hidden bg-slate-800">' +
+      '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">' +
+      (off>0 ? '<span class="absolute top-3 left-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">-' + off + '%</span>' : '') +
+      (p.badge ? '<span class="absolute top-3 right-3 bg-amber-400 text-slate-900 text-[11px] font-bold px-2.5 py-1 rounded-full">' + p.badge + '</span>' : '') +
+      '<button onclick="openQuickView(' + p.id + ')" class="absolute bottom-3 right-3 w-10 h-10 glass rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition hover:bg-white/20" title="Vista rápida"><i class="fas fa-eye"></i></button>' +
+    '</div>' +
+    '<div class="p-5 flex flex-col flex-1">' +
+      '<div class="flex items-center gap-0.5 text-[11px] text-amber-400 mb-2">' + stars(p.rating) + '<span class="text-slate-500 ml-1">(' + p.reviews + ')</span></div>' +
+      '<h3 class="font-bold text-lg leading-snug mb-1">' + p.name + '</h3>' +
+      '<p class="text-slate-400 text-sm mb-3 flex-1">' + p.desc + '</p>' +
+      '<div class="flex items-end gap-2 mb-2"><span class="text-2xl font-extrabold text-emerald-400">' + money(p.price) + '</span><span class="text-slate-500 line-through text-sm mb-0.5">' + money(p.old) + '</span></div>' +
+      '<div class="flex items-center justify-between text-xs mb-3">' +
+        '<span class="' + (low ? 'text-amber-400' : 'text-slate-500') + '"><i class="fas ' + (low ? 'fa-fire' : 'fa-box') + ' mr-1"></i>' + (low ? 'Solo ' + p.stock + ' disponibles' : 'Stock: ' + p.stock) + '</span>' +
+        '<span class="text-slate-500">' + p.supplier + '</span>' +
+      '</div>' +
+      '<button onclick="addToCart(' + p.id + ',1,this)" class="btn-primary w-full py-3 rounded-xl font-semibold flex items-center justify-center gap-2"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>' +
+    '</div></article>';
+}
+
+function applyFilters(){
+  let list = products.slice();
+  if (activeCat !== 'all') list = list.filter(p => p.cat === activeCat);
+  if (searchTerm){
+    const t = searchTerm.toLowerCase();
+    list = list.filter(p => (p.name + ' ' + p.desc + ' ' + p.supplier).toLowerCase().includes(t));
+  }
+  if (sortBy === 'price-asc')  list.sort((a,b)=> a.price - b.price);
+  if (sortBy === 'price-desc') list.sort((a,b)=> b.price - a.price);
+  if (sortBy === 'rating')     list.sort((a,b)=> b.rating - a.rating);
+
+  $('#productsGrid').innerHTML = list.map(cardHTML).join('');
+  $('#noResults').classList.toggle('hidden', list.length > 0);
+  observeReveals();
+}
+
+function setCategory(cat, btn){
+  activeCat = cat;
+  $$('.cat-btn').forEach(b => b.classList.remove('cat-active'));
+  if (btn) btn.classList.add('cat-active');
+  else { const b = $$('.cat-btn').find(x => (x.getAttribute('onclick')||'').includes("'" + cat + "'")); if (b) b.classList.add('cat-active'); }
+  applyFilters();
+}
+
+function renderOffers(){
+  const picks = [products[1], products[8], products[5]];
+  const cols = ['amber','pink','purple'];
+  $('#offersGrid').innerHTML = picks.map((p,i) => {
+    const c = cols[i]; const off = Math.round((1 - p.price/p.old)*100);
+    return '<div class="glass rounded-2xl p-6 border-2 border-' + c + '-500/30 relative overflow-hidden scroll-reveal">' +
+      '<div class="absolute top-0 right-0 bg-' + c + '-500 text-white px-4 py-1 text-sm font-bold">-' + off + '%</div>' +
+      '<img src="' + p.img + '" class="w-full h-44 object-cover rounded-xl mb-4" alt="' + p.name + '">' +
+      '<h3 class="font-bold text-lg mb-2">' + p.name + '</h3>' +
+      '<div class="flex items-center gap-2 mb-3"><span class="text-2xl font-bold text-emerald-400">' + money(p.price) + '</span><span class="text-slate-500 line-through">' + money(p.old) + '</span></div>' +
+      '<div class="w-full bg-slate-700 rounded-full h-2 mb-3"><div class="bg-' + c + '-500 h-2 rounded-full" style="width:' + (100 - p.stock) + '%"></div></div>' +
+      '<p class="text-xs text-slate-400 mb-3">¡Solo quedan ' + p.stock + ' unidades!</p>' +
+      '<button onclick="addToCart(' + p.id + ',1,this)" class="w-full bg-' + c + '-500 text-white py-3 rounded-xl font-bold hover:opacity-90 transition"><i class="fas fa-bolt mr-2"></i>Comprar ahora</button>' +
+    '</div>';
+  }).join('');
+  observeReveals();
+}
+
+/* ================= CARRITO ================= */
+function addToCart(id, qty=1, btn){
+  const p = products.find(x => x.id === id); if (!p) return;
+  const item = cart.find(x => x.id === id);
+  if (item) item.qty += qty; else cart.push({ id, qty });
+  saveCart(); syncCart();
+  showToast(p.name + ' agregado al carrito', 'ok');
+  if (btn){
+    const html = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+    btn.classList.add('btn-added');
+    setTimeout(()=>{ btn.innerHTML = html; btn.classList.remove('btn-added'); }, 1200);
+  }
+}
+
+function changeQty(id, d){ const it = cart.find(x=>x.id===id); if(!it) return; it.qty += d; if(it.qty<=0) cart = cart.filter(x=>x.id!==id); saveCart(); syncCart(); }
+function removeItem(id){ cart = cart.filter(x=>x.id!==id); saveCart(); syncCart(); showToast('Producto eliminado','warn'); }
+
+function totals(){
+  const subtotal = cart.reduce((s,it)=>{ const p = products.find(x=>x.id===it.id); return s + (p ? p.price*it.qty : 0); }, 0);
+  const discount = couponCode ? subtotal * COUPONS[couponCode] : 0;
+  const after = subtotal - discount;
+  const shipping = (cart.length === 0 || after >= FREE_SHIPPING_MIN) ? 0 : SHIPPING_COST;
+  const count = cart.reduce((s,it)=> s + it.qty, 0);
+  return { subtotal, discount, after, shipping, total: after + shipping, count };
+}
+
+function syncCart(){
+  const t = totals();
+  const badge = $('#cartCount');
+  badge.textContent = t.count;
+  badge.classList.toggle('hidden', t.count === 0);
+
+  const box = $('#cartItems');
+  if (cart.length === 0){
+    box.innerHTML = '<div class="text-center py-16 text-slate-400"><i class="fas fa-shopping-basket text-4xl mb-4 opacity-40"></i><p>Tu carrito está vacío</p>' +
+      '<a href="#productos" onclick="toggleCart(false)" class="inline-block mt-4 text-purple-400 hover:text-purple-300 text-sm font-semibold">Ver productos →</a></div>';
+  } else {
+    box.innerHTML = cart.map(it => {
+      const p = products.find(x=>x.id===it.id); if(!p) return '';
+      return '<div class="flex gap-3 bg-slate-800 rounded-xl p-3">' +
+        '<img src="' + p.img + '" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="">' +
+        '<div class="flex-1 min-w-0">' +
+          '<p class="font-semibold text-sm leading-snug truncate">' + p.name + '</p>' +
+          '<p class="text-emerald-400 text-sm font-bold">' + money(p.price) + '</p>' +
+          '<div class="flex items-center gap-2 mt-2">' +
+            '<button onclick="changeQty(' + p.id + ',-1)" class="w-7 h-7 rounded-lg bg-slate-700 hover:bg-slate-600 font-bold">−</button>' +
+            '<span class="w-7 text-center text-sm font-semibold">' + it.qty + '</span>' +
+            '<button onclick="changeQty(' + p.id + ',1)" class="w-7 h-7 rounded-lg bg-slate-700 hover:bg-slate-600 font-bold">+</button>' +
+            '<button onclick="removeItem(' + p.id + ')" class="ml-auto text-red-400 hover:text-red-300 text-sm px-1"><i class="fas fa-trash"></i></button>' +
+          '</div>' +
+        '</div>' +
+        '<p class="font-bold text-sm whitespace-nowrap">' + money(p.price*it.qty) + '</p>' +
+      '</div>';
+    }).join('');
+  }
+
+  const bar = $('#shipBar');
+  if (cart.length > 0 && t.after < FREE_SHIPPING_MIN){
+    bar.classList.remove('hidden');
+    $('#shipText').innerHTML = '<i class="fas fa-truck text-purple-400 mr-1"></i>Te faltan <strong class="text-white">' + money(FREE_SHIPPING_MIN - t.after) + '</strong> para el <strong class="text-emerald-400">envío GRATIS</strong>';
+    $('#shipProgress').style.width = Math.min(100, (t.after / FREE_SHIPPING_MIN) * 100) + '%';
+  } else if (cart.length > 0){
+    bar.classList.remove('hidden');
+    $('#shipText').innerHTML = '<i class="fas fa-circle-check text-emerald-400 mr-1"></i>¡Felicidades! Tienes <strong class="text-emerald-400">envío GRATIS</strong>';
+    $('#shipProgress').style.width = '100%';
+  } else { bar.classList.add('hidden'); }
+
+  $('#sumSubtotal').textContent = money(t.subtotal);
+  $('#sumShipping').textContent = t.shipping === 0 ? 'GRATIS' : money(t.shipping);
+  $('#sumTotal').textContent = money(t.total);
+  const dr = $('#discountRow');
+  if (t.discount > 0){ dr.classList.remove('hidden'); $('#discountLabel').textContent = 'Descuento (' + couponCode + ')'; $('#sumDiscount').textContent = '-' + money(t.discount); }
+  else dr.classList.add('hidden');
+}
+
+function toggleCart(open){
+  const m = $('#cartModal');
+  if (open === undefined) m.classList.toggle('hidden');
+  else m.classList.toggle('hidden', !open);
+}
+
+function applyCoupon(){
+  const code = ($('#couponInput').value || '').trim().toUpperCase();
+  if (COUPONS[code]){ couponCode = code; showToast('Cupón ' + code + ' aplicado: -' + (COUPONS[code]*100) + '%', 'ok'); }
+  else { couponCode = null; showToast('Cupón inválido', 'warn'); }
+  syncCart();
+}
+
+/* Arma el mensaje de WhatsApp con todo el pedido */
+function buildMessage(){
+  const t = totals();
+  const L = [];
+  L.push('*NUEVO PEDIDO — LuxDrop* 👑');
+  L.push('');
+  cart.forEach((it,i)=>{
+    const p = products.find(x=>x.id===it.id); if(!p) return;
+    L.push((i+1) + '. ' + p.name);
+    L.push('    ' + it.qty + ' x ' + money(p.price) + ' = ' + money(p.price*it.qty));
+  });
+  L.push('');
+  L.push('Subtotal: ' + money(t.subtotal));
+  if (t.discount > 0) L.push('Descuento (' + couponCode + '): -' + money(t.discount));
+  L.push('Envío: ' + (t.shipping === 0 ? 'GRATIS 🎉' : money(t.shipping)));
+  L.push('*TOTAL: ' + money(t.total) + '*');
+  const n = ($('#custName').value||'').trim();
+  const a = ($('#custAddr').value||'').trim();
+  const o = ($('#custNotes').value||'').trim();
+  if (n || a || o) L.push('');
+  if (n) L.push('Nombre: ' + n);
+  if (a) L.push('Entrega: ' + a);
+  if (o) L.push('Notas: ' + o);
+  L.push('');
+  L.push('¿Me confirman disponibilidad y forma de pago? ¡Gracias!');
+  return L.join('\n');
+}
+
+function checkoutWhatsApp(){
+  if (cart.length === 0){ showToast('Tu carrito está vacío', 'warn'); return; }
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(buildMessage()), '_blank');
+}
+
+/* ================= VISTA RÁPIDA ================= */
+function openQuickView(id){
+  const p = products.find(x=>x.id===id); if(!p) return;
+  const off = Math.round((1 - p.price/p.old)*100);
+  $('#qvBody').innerHTML =
+    '<div class="grid md:grid-cols-2">' +
+      '<div class="relative h-64 md:h-full bg-slate-800"><img src="' + p.img + '" class="w-full h-full object-cover" alt="' + p.name + '">' +
+        '<span class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">-' + off + '%</span></div>' +
+      '<div class="p-6 md:p-8">' +
+        '<button onclick="closeQuickView()" class="float-right text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>' +
+        '<div class="text-amber-400 text-xs mb-2">' + stars(p.rating) + ' <span class="text-slate-500">(' + p.reviews + ' reseñas)</span></div>' +
+        '<h3 class="text-2xl font-bold mb-2">' + p.name + '</h3>' +
+        '<p class="text-slate-400 text-sm mb-4">' + p.desc + '</p>' +
+        '<ul class="text-sm text-slate-300 space-y-2 mb-5">' + p.specs.map(s => '<li><i class="fas fa-check text-emerald-400 mr-2"></i>' + s + '</li>').join('') + '</ul>' +
+        '<div class="flex items-end gap-3 mb-5"><span class="text-3xl font-extrabold text-emerald-400">' + money(p.price) + '</span><span class="text-slate-500 line-through">' + money(p.old) + '</span></div>' +
+        '<p class="text-xs text-amber-400 mb-4"><i class="fas fa-fire mr-1"></i>Solo ' + p.stock + ' unidades disponibles</p>' +
+        '<button onclick="addToCart(' + p.id + ',1,this)" class="w-full btn-primary py-4 rounded-xl font-bold"><i class="fas fa-cart-plus mr-2"></i>Agregar al carrito</button>' +
+      '</div>' +
+    '</div>';
+  $('#qvModal').classList.remove('hidden');
+}
+function closeQuickView(){ $('#qvModal').classList.add('hidden'); }
+
+/* ================= COUNTDOWN ================= */
+function tick(){
+  const now = new Date();
+  const end = new Date(); end.setHours(23,59,59,999);
+  const d = Math.max(0, end - now);
+  const pad = n => String(n).padStart(2,'0');
+  const el = $('#countdown');
+  if (el) el.textContent = pad(Math.floor(d/3600000)) + ' : ' + pad(Math.floor(d%3600000/60000)) + ' : ' + pad(Math.floor(d%60000/1000));
+}
+
+/* ================= MISC ================= */
+function toggleMenu(){ $('#mobileMenu').classList.toggle('hidden'); }
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }), { threshold: 0.08 });
+function observeReveals(){ $$('.scroll-reveal:not(.active)').forEach(el => io.observe(el)); }
+
+function fakeLive(){
+  const el = $('#liveBuyers'); if(!el) return;
+  let n = 2847;
+  setInterval(()=>{ n += Math.floor(Math.random()*7) - 2; el.textContent = '+' + n.toLocaleString('es-MX') + ' personas comprando ahora'; }, 4000);
+}
+
+/* ================= INIT ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  applyFilters();
+  renderOffers();
+  syncCart();
+  tick(); setInterval(tick, 1000);
+  observeReveals();
+  setTimeout(observeReveals, 800);
+  fakeLive();
+
+  const si = $('#searchInput'), sim = $('#searchInputM');
+  if (si)  si.addEventListener('input',  e => { searchTerm = e.target.value; if (sim) sim.value = e.target.value; applyFilters(); });
+  if (sim) sim.addEventListener('input', e => { searchTerm = e.target.value; if (si)  si.value  = e.target.value; applyFilters(); });
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape'){ closeQuickView(); toggleCart(false); } });
+});
+
+/* SEO: datos estructurados */
+const ld = document.createElement('script');
+ld.type = 'application/ld+json';
+ld.textContent = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "LuxDrop",
+  "description": "Tienda de productos premium con envío a todo México.",
+  "email": "dropshiping999skd@gmail.com",
+  "telephone": "+525570631464",
+  "sameAs": ["https://instagram.com/zzzxb._"]
+});
+document.head.appendChild(ld);
+</script>
+</body>
+</html>
